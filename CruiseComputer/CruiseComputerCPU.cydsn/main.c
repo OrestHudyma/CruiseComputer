@@ -28,9 +28,14 @@ int main(void)
     PWM_Acc_Start();
     ADC_SAR_Seq_Start();
     
-    CyDelay(5000);
-    power_target = 50;
-    
+    for(uint32 i=0;i<1000;i++)
+    {
+        AdjustOutput();
+        
+        CyDelay(MAIN_ROUTINE_DELAY_MS);
+    }
+
+    power_target = 50;    
     for(uint32 i=0;i<1000;i++)
     {
         AdjustOutput();
